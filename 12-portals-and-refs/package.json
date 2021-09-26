@@ -4,10 +4,20 @@
   "description": "The Adopt Me pet adoption app",
   "main": "src/index.js",
   "scripts": {
+<<<<<<< HEAD
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
     "dev": "parcel src/index.html",
     "typecheck": "tsc --noEmit"
+=======
+    "build:client": "parcel build --public-url ./dist/ src/index.html",
+    "build:server": "parcel build -d dist-server --target node server/index.js",
+    "build": "npm run build:client && npm run build:server",
+    "start": "npm -s run build && node dist-server/index.js",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "dev": "parcel src/index.html"
+>>>>>>> 22a8fbb4d38613b0822ec4e88a0b72733ba0f6b4
   },
   "author": "Brian Holt <btholt+citrv6@gmail.com>",
   "license": "Apache-2.0",
@@ -16,11 +26,17 @@
     "@babel/plugin-proposal-class-properties": "7.13.0",
     "@babel/preset-env": "7.13.5",
     "@babel/preset-react": "7.12.13",
+<<<<<<< HEAD
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@types/react-router-dom": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
+=======
+    "@tailwindcss/forms": "^0.2.1",
+    "@tailwindcss/postcss7-compat": "^2.0.3",
+    "autoprefixer": "^9.8.6",
+>>>>>>> 22a8fbb4d38613b0822ec4e88a0b72733ba0f6b4
     "eslint": "7.18.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-import-resolver-typescript": "^2.4.0",
@@ -29,12 +45,21 @@
     "eslint-plugin-react": "7.22.0",
     "eslint-plugin-react-hooks": "4.2.0",
     "parcel": "1.12.3",
+<<<<<<< HEAD
     "prettier": "2.2.1",
     "typescript": "^4.2.2"
+=======
+    "postcss": "^7.0.35",
+    "prettier": "2.2.1",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3"
+>>>>>>> 22a8fbb4d38613b0822ec4e88a0b72733ba0f6b4
   },
   "dependencies": {
+    "express": "^4.17.1",
+    "i": "^0.3.6",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-dom-server": "0.0.5",
     "react-router-dom": "5.2.0"
   },
   "browserslist": [

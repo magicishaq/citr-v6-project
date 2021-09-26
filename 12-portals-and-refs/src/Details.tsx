@@ -1,3 +1,4 @@
+<<<<<<< HEAD:12-portals-and-refs/src/Details.tsx
 import { Component, FunctionComponent } from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import ThemeContext from "./ThemeContext";
@@ -18,22 +19,45 @@ class Details extends Component<RouteComponentProps<{ id: string }>> {
     name: "",
     images: [] as string[],
   };
+=======
+import { Component, lazy, Suspense } from 'react'
+import { withRouter } from 'react-router-dom'
+import ThemeContext from './ThemeContext'
+import Carousel from './Carousel'
+import ErrorBoundary from './ErrorBoundary'
+//import Modal from "./Modal";
+
+const Modal = lazy(() => import('./Modal'))
+
+class Details extends Component {
+  state = { loading: true, showModal: false }
+>>>>>>> 22a8fbb4d38613b0822ec4e88a0b72733ba0f6b4:12-portals-and-refs/src/Details.js
 
   async componentDidMount() {
     const res = await fetch(
       `http://pets-v2.dev-apis.com/pets?id=${this.props.match.params.id}`
+<<<<<<< HEAD:12-portals-and-refs/src/Details.tsx
     );
     const json = (await res.json()) as PetAPIResponse;
     this.setState(Object.assign({ loading: false }, json.pets[0]));
+=======
+    )
+    const json = await res.json()
+    this.setState(Object.assign({ loading: false }, json.pets[0]))
+>>>>>>> 22a8fbb4d38613b0822ec4e88a0b72733ba0f6b4:12-portals-and-refs/src/Details.js
   }
 
-  toggleModal = () => this.setState({ showModal: !this.state.showModal });
+  toggleModal = () => this.setState({ showModal: !this.state.showModal })
 
+<<<<<<< HEAD:12-portals-and-refs/src/Details.tsx
   adopt = () => (window.location.href = "http://bit.ly/pet-adopt");
+=======
+  adopt = () => (window.location = 'http://bit.ly/pet-adopt')
+>>>>>>> 22a8fbb4d38613b0822ec4e88a0b72733ba0f6b4:12-portals-and-refs/src/Details.js
 
   render() {
     if (this.state.loading) {
-      return <h2>loading … </h2>;
+      return <h2>loading … </h2>
     }
 
     const {
@@ -45,7 +69,7 @@ class Details extends Component<RouteComponentProps<{ id: string }>> {
       name,
       images,
       showModal,
-    } = this.state;
+    } = this.state
 
     return (
       <div className="details">
@@ -77,18 +101,23 @@ class Details extends Component<RouteComponentProps<{ id: string }>> {
           ) : null}
         </div>
       </div>
-    );
+    )
   }
 }
 
-const DetailsWithRouter = withRouter(Details);
+const DetailsWithRouter = withRouter(Details)
 
 const DetailsErrorBoundary: FunctionComponent = function DetailsErrorBoundary() {
   return (
     <ErrorBoundary>
       <DetailsWithRouter />
     </ErrorBoundary>
+<<<<<<< HEAD:12-portals-and-refs/src/Details.tsx
   );
 };
 
 export default DetailsErrorBoundary;
+=======
+  )
+}
+>>>>>>> 22a8fbb4d38613b0822ec4e88a0b72733ba0f6b4:12-portals-and-refs/src/Details.js

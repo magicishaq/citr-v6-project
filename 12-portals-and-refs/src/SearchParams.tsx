@@ -28,25 +28,28 @@ const SearchParams: FunctionComponent = () => {
   }
 
   return (
-    <div className="search-params">
+    <div className="my-0 mx-auto w-11/12 ">
       <form
+        className="p-10 mb-10 rounded-lg bg-gray-200 shadow-lg flex flex-col justify-center items-center divide-y divide-gray-900 "
         onSubmit={(e) => {
           e.preventDefault();
           void requestPets();
         }}
       >
-        <label htmlFor="location">
+        <label className="search-label" htmlFor="location">
           Location
           <input
+            className="search-control"
             id="location"
             value={location}
             placeholder="Location"
             onChange={(e) => updateLocation(e.target.value)}
           />
         </label>
-        <label htmlFor="animal">
+        <label className="search-label" htmlFor="animal">
           Animal
           <select
+            className="search-control"
             id="animal"
             value={animal}
             onChange={(e) => updateAnimal(e.target.value as Animal)}
@@ -60,9 +63,10 @@ const SearchParams: FunctionComponent = () => {
             ))}
           </select>
         </label>
-        <label htmlFor="breed">
+        <label className="search-label" htmlFor="breed">
           Breed
           <select
+            className="search-control disabled:opacity-50"
             disabled={!breeds.length}
             id="breed"
             value={breed}
@@ -77,9 +81,10 @@ const SearchParams: FunctionComponent = () => {
             ))}
           </select>
         </label>
-        <label htmlFor="theme">
+        <label className="search-label" htmlFor="theme">
           Theme
           <select
+            className="search-control"
             value={theme}
             onChange={(e) => setTheme(e.target.value)}
             onBlur={(e) => setTheme(e.target.value)}
@@ -90,11 +95,16 @@ const SearchParams: FunctionComponent = () => {
             <option value="mediumorchid">Medium Orchid</option>
           </select>
         </label>
-        <button style={{ backgroundColor: theme }}>Submit</button>
+        <button
+          className="rounded px-6 py-2 text-white hover:opacity-50 border-none"
+          style={{ backgroundColor: theme }}
+        >
+          Submit
+        </button>
       </form>
       <Results pets={pets} />
     </div>
-  );
-};
+  )
+}
 
-export default SearchParams;
+export default SearchParams
